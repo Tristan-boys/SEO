@@ -1,25 +1,28 @@
 # Rediriger HTTP vers HTTPS
 <IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteCond %{HTTPS} off
-  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-</IfModule>
+    RewriteEngine On
 
-# Redirection permanente de /index.html vers /
-Redirect 301 /index.html /
+    # Si l'URL est exactement "/index.html", rediriger vers "/"
+    RewriteCond %{REQUEST_URI} ^/index\.html$
+    RewriteRule ^index\.html$ / [R=301,L]
+
+    # Si http -> https
+    RewriteCond %{HTTPS} off
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
 
 # Compression Gzip
 <IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
-  AddOutputFilterByType DEFLATE text/javascript application/javascript application/x-javascript
-  AddOutputFilterByType DEFLATE application/json application/xml application/xhtml+xml
-  AddOutputFilterByType DEFLATE application/rss+xml application/atom+xml
-  AddOutputFilterByType DEFLATE application/font-woff application/font-woff2
-  AddOutputFilterByType DEFLATE application/octet-stream
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+    AddOutputFilterByType DEFLATE text/javascript application/javascript application/x-javascript
+    AddOutputFilterByType DEFLATE application/json application/xml application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml application/atom+xml
+    AddOutputFilterByType DEFLATE application/font-woff application/font-woff2
+    AddOutputFilterByType DEFLATE application/octet-stream
 
-  BrowserMatch ^Mozilla/4 gzip-only-text/html
-  BrowserMatch ^Mozilla/4\.0[678] no-gzip
-  BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+    BrowserMatch ^Mozilla/4 gzip-only-text/html
+    BrowserMatch ^Mozilla/4\.0[678] no-gzip
+    BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
 
-  Header append Vary Accept-Encoding
+    Header append Vary Accept-Encoding
 </IfModule>
