@@ -4,6 +4,7 @@ body {
     background: #f4f4f4;
     color: #333;
     line-height: 2;
+    min-height: 100vh;
 }
 
 h1, h2 {
@@ -45,7 +46,10 @@ section {
 footer {
     text-align: center;
     font-size: 0.9rem;
-    color: #777;
     margin-top: 2rem;
     padding: 1rem;
+
+    color: #404040;
+    a { color: #0a3ca0; }
+    a:hover { color: #0a1e64; }
 }
