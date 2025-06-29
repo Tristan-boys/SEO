@@ -2,13 +2,18 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    # Si l'URL est exactement "/index.html", rediriger vers "/"
+    # Redirige "/index.html", rediriger vers "/"
     RewriteCond %{REQUEST_URI} ^/index\.html$
     RewriteRule ^index\.html$ / [R=301,L]
 
-    # Si http -> https
+    # Redirige "http" vers "https"
     RewriteCond %{HTTPS} off
     RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # Redirige les requête avec "www" sans le "www"
+    RewriteEngine On
+    RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+    RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
 </IfModule>
 
 # Compression Gzip
