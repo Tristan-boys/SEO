@@ -1,55 +1,61 @@
 * { margin: 0; padding: 0; font-family: "Segoe UI", sans-serif; }
 
 body {
-    background: #f4f4f4;
-    color: #333;
-    line-height: 2;
-    min-height: 100vh;
+  background: #f4f4f4;
+  color: #333;
+  line-height: 2;
+  min-height: 100vh;
 }
 
 h1, h2 {
-    color: #111;
+  color: #111;
 }
 
 header {
-    * { color: #fff; }
-    background: #333;
-    text-align: center;
-    padding: 1rem;
+  * { color: #fff; }
+  background: #333;
+  text-align: center;
+  padding: 1rem;
 }
 
 pre {
-    background: #1e1e1e;
-    color: #eee;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    overflow-x: auto;
+  background: #1e1e1e;
+  color: #eee;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
 }
 
 code {
-    font-family: Consolas, monospace;
+  font-family: Consolas, monospace;
 }
 
 main {
-    max-width: 800px;
-    margin: 2rem auto;
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  max-width: 800px;
+  margin: 2rem auto;
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
 
-section {
-    margin-bottom: 2rem;
+.container {
+  margin-bottom: 1rem;
 }
 
 footer {
-    text-align: center;
-    font-size: 0.9rem;
-    margin-top: 2rem;
-    padding: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+  padding: 1rem;
 
-    color: #404040;
-    a { color: #0a3ca0; }
-    a:hover { color: #0a1e64; }
+  color: #404040;
+  a { color: #0a3ca0; }
+  a:hover { color: #0a1e64; }
+}
+
+@media screen and (max-width: 992px) {
+  body { font-size: 75% }
+  main { margin: auto; padding: 1rem; }
+  footer { margin-top: 1rem; }
 }
