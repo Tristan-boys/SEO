@@ -1,4 +1,12 @@
+# Autorise tous les robots à tout indexer
 User-agent: *
 Disallow:
 
-Sitemap: https://www.i-code-nawak.fr/sitemap.xml
+# Emplacement du sitemap XML
+Sitemap: https://i-code-nawak.fr/sitemap.xml
+
+# Suggestion de délai entre chaque requête (en secondes) — ici 8h = 28800 secondes
+Crawl-delay: 28800
+
+# Limite le crawl pour éviter surcharge (optionnel)
+# Crawl-delay: 10
